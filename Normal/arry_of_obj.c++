@@ -17,19 +17,26 @@ int main()
     for (int i = 0; i < x; i++)
     {
         cin.ignore();
-        cin >> a[i].name >> a[i].id >> a[i].marks;
+        getline(cin, a[i].name);
+        cin >> a[i].id >> a[i].marks;
     }
-    Programmer min;
-    min.marks = INT_MAX;
+    Programmer max;
+    max.marks = INT_MIN;
     for (int i = 0; i < x; i++)
     {
-        // cout << a[i].name << " " << a[i].id << " " << a[i].marks << " " << endl;
-        if (a[i].marks < min.marks)
+        if (a[i].marks > max.marks)
         {
-            min = a[i];
+            max = a[i];
+        }
+        else if (a[i].marks == max.marks)
+        {
+            if (a[i].id < max.id)
+            {
+                max = a[i];
+            }
         }
     }
-    cout << min.name << " " << min.id << " " << min.marks << " " << endl;
+    cout << max.name << " " << max.id << " " << max.marks << " " << endl;
 
     return 0;
 }
