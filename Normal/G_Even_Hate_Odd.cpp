@@ -11,13 +11,15 @@ int main()
     {
         long long int input;
         cin >> input;
+        int arr[input];
+
+        for (int i = 0; i < input; i++)
+        {
+            cin >> arr[i];
+        }
         if (input % 2 == 0)
         {
-            int arr[input];
-            for (int i = 0; i < input; i++)
-            {
-                cin >> arr[i];
-            }
+
             int even = 0;
             int odd = 0;
             int sub = 0;
@@ -34,25 +36,8 @@ int main()
                     odd++;
                 }
             }
-            if (even > odd)
-            {
-                sub = even - odd;
-                count = sub - need;
-            }
-            else
-            {
-                sub = odd - even;
-                count = sub - need;
-            }
-
-            if (odd == even)
-            {
-                cout << 0 << endl;
-            }
-            else
-            {
-                cout << count << endl;
-            }
+            cout << abs(odd - need);
+            cout << endl;
         }
         else
         {
@@ -62,3 +47,4 @@ int main()
 
     return 0;
 }
+
